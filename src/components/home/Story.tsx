@@ -70,10 +70,7 @@ export default function Story() {
 
           <p className="font-mono text-ink-600 text-base md:text-lg leading-relaxed">
             Şimdi ise bu tecrübeleri bir araya getirip,{' '}
-            <span className="text-igda relative inline-block">
-              daha güçlü bir topluluk
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-igda/40" />
-            </span>{' '}
+            <span className="text-igda font-semibold">daha güçlü bir topluluk</span>{' '}
             oluşturmak için buradayız.
           </p>
 

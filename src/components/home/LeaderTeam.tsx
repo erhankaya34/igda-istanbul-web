@@ -3,8 +3,10 @@
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/contexts/ThemeContext';
 
-const leaders = [
+// Normal team leaders
+const normalLeaders = [
   {
     name: 'İpek Taraklıoğlu',
     role: 'Kurucu Lider',
@@ -25,9 +27,36 @@ const leaders = [
   },
 ];
 
+// Gothic team leaders with dark fantasy avatars
+const gothicLeaders = [
+  {
+    name: 'İpek Taraklıoğlu',
+    role: 'Kurucu Lider',
+    image: '/images/gothic/gothic-profile-1.jpg',
+    rotation: -3,
+  },
+  {
+    name: 'Onur Şimşek',
+    role: 'Kurucu Lider',
+    image: '/images/gothic/gothic-profile-2.jpg',
+    rotation: 2,
+  },
+  {
+    name: 'Erhan Kaya',
+    role: 'Kurucu Lider',
+    image: '/images/gothic/gothic-profile-3.jpg',
+    rotation: -2,
+  },
+];
+
 export default function LeaderTeam() {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { theme } = useTheme();
+  const isGothic = theme === 'gothic';
+
+  // Theme-based leaders array
+  const leaders = isGothic ? gothicLeaders : normalLeaders;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -84,15 +113,9 @@ export default function LeaderTeam() {
 
           <p className="font-mono text-ink-700 text-base md:text-lg leading-relaxed mb-6">
             IGDA Istanbul'un,{' '}
-            <span className="text-igda relative inline-block">
-              global bağlantıları
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-igda/40" />
-            </span>{' '}
+            <span className="text-igda font-semibold">global bağlantıları</span>{' '}
             öne çıkaran, paylaşım ve işbirliği için{' '}
-            <span className="text-igda relative inline-block">
-              sıcak bir ortam
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-igda/40" />
-            </span>{' '}
+            <span className="text-igda font-semibold">sıcak bir ortam</span>{' '}
             olmasını istiyoruz.
           </p>
 
@@ -135,12 +158,12 @@ export default function LeaderTeam() {
                   src={leader.image}
                   alt={leader.name}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-all duration-500 leader-photo"
                   sizes="180px"
                 />
               </div>
               <div className="text-center mt-3 pb-2">
-                <p className="font-script text-lg text-ink-800">
+                <p className="font-display text-base font-semibold text-ink-800">
                   {leader.name}
                 </p>
                 <p className="font-mono text-xs text-ink-500 mt-1">

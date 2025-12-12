@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
-import { Mr_Dafoe, Space_Mono, Poppins } from 'next/font/google';
+import { Mr_Dafoe, Space_Mono, Poppins, Cinzel_Decorative, Crimson_Text } from 'next/font/google';
+import dynamic from 'next/dynamic';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { SITE_CONFIG } from '@/lib/constants';
+import { ThemeProvider } from '@/contexts/ThemeContext';
+
+// Dynamic import for GothicEffects to avoid SSR issues
+const GothicEffects = dynamic(() => import('@/components/ui/GothicEffects'), {
+  ssr: false,
+});
 
 // Mr Dafoe - Elegant script for "Merhaba biz"
 const mrDafoe = Mr_Dafoe({
@@ -29,6 +36,22 @@ const spaceMono = Space_Mono({
   weight: ['400', '700'],
 });
 
+// Cinzel Decorative - Gothic display font for dark theme
+const cinzelDecorative = Cinzel_Decorative({
+  subsets: ['latin'],
+  variable: '--font-gothic-display',
+  display: 'swap',
+  weight: ['400', '700', '900'],
+});
+
+// Crimson Text - Gothic body font for dark theme
+const crimsonText = Crimson_Text({
+  subsets: ['latin'],
+  variable: '--font-gothic-body',
+  display: 'swap',
+  weight: ['400', '600', '700'],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
@@ -36,6 +59,11 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
+  icons: {
+    icon: '/images/logos/header-logo.png',
+    shortcut: '/images/logos/header-logo.png',
+    apple: '/images/logos/header-logo.png',
+  },
   keywords: [
     'IGDA',
     'Istanbul',
@@ -86,12 +114,15 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className={`${mrDafoe.variable} ${poppins.variable} ${spaceMono.variable}`}
+      className={`${mrDafoe.variable} ${poppins.variable} ${spaceMono.variable} ${cinzelDecorative.variable} ${crimsonText.variable}`}
     >
-      <body className="font-mono antialiased bg-cream-200 text-ink-700">
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+      <body className="font-mono antialiased bg-cream-200 text-ink-700 transition-colors duration-500">
+        <ThemeProvider>
+          <GothicEffects />
+          <Navbar />
+          <main className="min-h-screen relative z-10">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -20,34 +20,14 @@ export const NAV_ITEMS = [
 // Social media links
 export const SOCIAL_LINKS = [
   {
-    platform: 'Discord',
-    url: 'https://discord.gg/igdaistanbul',
-    icon: 'discord',
-  },
-  {
-    platform: 'Twitter',
-    url: 'https://twitter.com/IGDAIstanbul',
-    icon: 'twitter',
-  },
-  {
     platform: 'LinkedIn',
     url: 'https://linkedin.com/company/igda-istanbul',
     icon: 'linkedin',
   },
   {
     platform: 'Instagram',
-    url: 'https://instagram.com/igdaistanbul',
+    url: 'https://instagram.com/igda.istanbul',
     icon: 'instagram',
-  },
-  {
-    platform: 'YouTube',
-    url: 'https://youtube.com/@igdaistanbul',
-    icon: 'youtube',
-  },
-  {
-    platform: 'Spotify',
-    url: 'https://open.spotify.com/show/igdaistanbul',
-    icon: 'spotify',
   },
 ];
 
@@ -120,6 +100,6 @@ export const ITEMS_PER_PAGE = 9;
 
 // Contact info
 export const CONTACT_INFO = {
-  email: 'merhaba@igdaistanbul.org',
+  email: 'tr-istanbul@igda.org',
   location: 'İstanbul, Türkiye',
 };

@@ -10,6 +10,10 @@ export const mainNavigation: NavItem[] = [
     href: '/icerikler',
   },
   {
+    label: 'Bize Katıl',
+    href: '/bize-katil',
+  },
+  {
     label: 'İletişim',
     href: '/iletisim',
   },

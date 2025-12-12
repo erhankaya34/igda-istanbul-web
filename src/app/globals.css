@@ -3,6 +3,26 @@
 @tailwind utilities;
 
 /* ========================================
+   Custom Gothic Fonts
+   ======================================== */
+
+@font-face {
+  font-family: 'Gorewild';
+  src: url('/fonts/Gorewild.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelpMe';
+  src: url('/fonts/HelpMe.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================================
    IGDA Istanbul - Nostalgic Retro Theme
    Aesthetic: Warm, Handcrafted, Indie
    ======================================== */
@@ -29,6 +49,274 @@
   --duration-fast: 150ms;
   --duration-base: 300ms;
   --duration-slow: 500ms;
+}
+
+/* ========================================
+   Gothic Theme - Ultra Premium Horror Experience
+   Inspired by: Dark Souls UI × Bloodborne × Victorian Gothic
+   ======================================== */
+
+html[data-theme="gothic"] {
+  /* Refined Gothic Color System - Bordo + Altın + Soğuk Mavi */
+  --color-cream: #0a0608;
+  --color-cream-alt: #120a0c;
+  --color-cream-dark: #1a0e10;
+  --color-igda: #7a1818;
+  --color-igda-dark: #4a0000;
+  --color-ink: #e8dcc8;
+  --color-ink-light: #c9b896;
+  --color-ink-muted: #8a7a60;
+
+  /* Premium Gothic Accents */
+  --gothic-blood: #7a1818;
+  --gothic-gold: #c9a227;
+  --gothic-blue: #1a2a3a;
+  --gothic-glow: rgba(122, 24, 24, 0.5);
+  --gothic-gold-glow: rgba(201, 162, 39, 0.4);
+  --gothic-mist: rgba(0, 0, 0, 0.8);
+  --gothic-bone: #e8dcc8;
+  --gothic-shadow: #0a0608;
+}
+
+/* Gothic body styles */
+html[data-theme="gothic"] body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ctext y='18' font-size='18'%3E💀%3C/text%3E%3C/svg%3E") 12 12, auto;
+}
+
+/* Gothic subtle vignette - no texture */
+html[data-theme="gothic"] body::before {
+  background-image:
+    radial-gradient(ellipse at 20% 80%, rgba(139, 0, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(60, 0, 0, 0.1) 0%, transparent 50%);
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Gothic blood drip top border */
+html[data-theme="gothic"] body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #8b0000 10%,
+    #5c0000 30%,
+    #8b0000 50%,
+    #5c0000 70%,
+    #8b0000 90%,
+    transparent 100%
+  );
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.5), 0 5px 30px rgba(139, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* Gothic scrollbar - blood red */
+html[data-theme="gothic"]::-webkit-scrollbar-track {
+  background: #0a0808;
+}
+
+html[data-theme="gothic"]::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8b0000, #5c0000);
+  border-radius: 4px;
+}
+
+html[data-theme="gothic"]::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a00000, #8b0000);
+}
+
+/* Gothic selection - blood red */
+html[data-theme="gothic"] ::selection {
+  background-color: rgba(139, 0, 0, 0.7);
+  color: #e8e4df;
+}
+
+/* Gothic focus */
+html[data-theme="gothic"] *:focus-visible {
+  outline-color: var(--color-igda);
+  box-shadow: 0 0 15px var(--gothic-glow);
+}
+
+/* Gothic Typography - Cinzel Decorative for headings */
+html[data-theme="gothic"] h1,
+html[data-theme="gothic"] h2,
+html[data-theme="gothic"] h3,
+html[data-theme="gothic"] h4 {
+  font-family: var(--font-gothic-display), serif;
+  color: var(--color-ink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 10px rgba(201, 162, 39, 0.3),
+    0 0 30px rgba(74, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Gothic body text - Crimson Text */
+html[data-theme="gothic"] p,
+html[data-theme="gothic"] span:not(.text-xs):not(.text-sm),
+html[data-theme="gothic"] li {
+  font-family: var(--font-gothic-body), serif;
+  letter-spacing: 0.02em;
+}
+
+/* Gothic polaroid - glass morphism */
+html[data-theme="gothic"] .polaroid {
+  background: rgba(18, 18, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 0, 0, 0.3);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(139, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+html[data-theme="gothic"] .polaroid:hover {
+  border-color: rgba(139, 0, 0, 0.5);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(139, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* All images in gothic mode are black & white */
+html[data-theme="gothic"] img {
+  filter: grayscale(100%) contrast(1.15) brightness(0.85);
+  transition: filter 0.3s ease;
+}
+
+/* LeaderTeam fotoğrafları her zaman orijinal renkte */
+html[data-theme="gothic"] img.leader-photo,
+img.leader-photo {
+  filter: none !important;
+}
+
+html[data-theme="gothic"] .polaroid img {
+  filter: grayscale(100%) contrast(1.2) brightness(0.85);
+}
+
+/* Gothic retro card */
+html[data-theme="gothic"] .retro-card {
+  background: rgba(18, 18, 26, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(139, 0, 0, 0.2);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="gothic"] .retro-card:hover {
+  border-color: rgba(139, 0, 0, 0.4);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(139, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Gothic stamp */
+html[data-theme="gothic"] .stamp {
+  border-color: var(--color-igda);
+  color: var(--color-igda);
+  text-shadow: 0 0 10px var(--gothic-glow);
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.2);
+}
+
+/* Gothic buttons */
+html[data-theme="gothic"] .btn-primary {
+  background: linear-gradient(135deg, #8b0000, #5c0000);
+  border-color: #8b0000;
+  box-shadow:
+    0 4px 15px rgba(139, 0, 0, 0.3),
+    0 0 20px rgba(139, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="gothic"] .btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+html[data-theme="gothic"] .btn-primary:hover::before {
+  transform: translateX(100%);
+}
+
+html[data-theme="gothic"] .btn-primary:hover {
+  background: linear-gradient(135deg, #9b4a72, #7b3d6c);
+  box-shadow:
+    0 6px 25px rgba(139, 0, 0, 0.4),
+    0 0 30px rgba(139, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+html[data-theme="gothic"] .btn-outline {
+  border-color: var(--color-ink-muted);
+  color: var(--color-ink);
+  background: transparent;
+}
+
+html[data-theme="gothic"] .btn-outline:hover {
+  background: rgba(139, 0, 0, 0.2);
+  border-color: var(--color-igda);
+  color: var(--color-ink);
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.2);
+}
+
+/* Gothic social link */
+html[data-theme="gothic"] .social-link {
+  border-color: var(--color-ink-muted);
+  color: var(--color-ink);
+}
+
+html[data-theme="gothic"] .social-link:hover {
+  background: linear-gradient(135deg, #8b0000, #5c0000);
+  border-color: #8b0000;
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.3);
+}
+
+/* Gothic dots background */
+html[data-theme="gothic"] .bg-dots {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(139, 0, 0, 0.15) 1px,
+    transparent 0
+  );
+}
+
+/* Gothic decorative line */
+html[data-theme="gothic"] .decorative-line {
+  background: linear-gradient(90deg, transparent, var(--color-igda), transparent);
+  box-shadow: 0 0 10px var(--gothic-glow);
+}
+
+/* Gothic section divider */
+html[data-theme="gothic"] .section-divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 0, 0, 0.4),
+    transparent
+  );
+}
+
+/* Gothic link hover */
+html[data-theme="gothic"] .link-hover:hover {
+  color: var(--color-igda);
+  text-shadow: 0 0 10px var(--gothic-glow);
+}
+
+html[data-theme="gothic"] .link-hover::after {
+  background: var(--color-igda);
+  box-shadow: 0 0 8px var(--gothic-glow);
 }
 
 /* ========================================
@@ -530,4 +818,289 @@ p, li, span {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ========================================
+   Gothic Theme - Special Effects
+   ======================================== */
+
+/* Floating runes animation */
+@keyframes float-rune {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+/* Flicker glow (candle effect) */
+@keyframes flicker-glow {
+  0%, 100% { opacity: 0.8; filter: brightness(1); }
+  10% { opacity: 0.6; filter: brightness(0.85); }
+  20% { opacity: 0.9; filter: brightness(1.1); }
+  30% { opacity: 0.7; filter: brightness(0.9); }
+  40% { opacity: 0.85; filter: brightness(1.05); }
+  50% { opacity: 0.75; filter: brightness(0.95); }
+  60% { opacity: 0.9; filter: brightness(1.08); }
+  70% { opacity: 0.65; filter: brightness(0.88); }
+  80% { opacity: 0.8; filter: brightness(1); }
+  90% { opacity: 0.7; filter: brightness(0.92); }
+}
+
+/* Particle float */
+@keyframes particle-rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Gothic pulse */
+@keyframes gothic-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(139, 0, 0, 0.5), 0 0 40px rgba(139, 0, 0, 0.2);
+  }
+}
+
+/* Runic glow rotation */
+@keyframes rune-rotate {
+  0% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 0 5px rgba(139, 0, 0, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(139, 0, 0, 0.8));
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: drop-shadow(0 0 5px rgba(139, 0, 0, 0.5));
+  }
+}
+
+/* Gothic utility classes */
+html[data-theme="gothic"] .gothic-glow {
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.3), 0 0 40px rgba(139, 0, 0, 0.1);
+}
+
+html[data-theme="gothic"] .gothic-text-glow {
+  text-shadow: 0 0 10px rgba(139, 0, 0, 0.5), 0 0 20px rgba(139, 0, 0, 0.3);
+}
+
+html[data-theme="gothic"] .gothic-border-glow {
+  border-color: rgba(139, 0, 0, 0.4);
+  box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.1), 0 0 15px rgba(139, 0, 0, 0.2);
+}
+
+html[data-theme="gothic"] .gothic-pulse {
+  animation: gothic-pulse 3s ease-in-out infinite;
+}
+
+html[data-theme="gothic"] .gothic-flicker {
+  animation: flicker-glow 4s ease-in-out infinite;
+}
+
+/* Gothic Navbar specific */
+html[data-theme="gothic"] header {
+  background: rgba(10, 10, 15, 0.95) !important;
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(139, 0, 0, 0.2) !important;
+}
+
+/* Gothic card backgrounds for sections */
+html[data-theme="gothic"] .bg-cream-200 {
+  background-color: var(--color-cream) !important;
+}
+
+html[data-theme="gothic"] .bg-cream-300 {
+  background-color: var(--color-cream-alt) !important;
+}
+
+html[data-theme="gothic"] .bg-white {
+  background-color: rgba(18, 18, 26, 0.8) !important;
+}
+
+/* Gothic text colors */
+html[data-theme="gothic"] .text-ink-700,
+html[data-theme="gothic"] .text-ink-800,
+html[data-theme="gothic"] .text-ink-900 {
+  color: var(--color-ink) !important;
+}
+
+html[data-theme="gothic"] .text-ink-500,
+html[data-theme="gothic"] .text-ink-600 {
+  color: var(--color-ink-light) !important;
+}
+
+html[data-theme="gothic"] .text-ink-400 {
+  color: var(--color-ink-muted) !important;
+}
+
+/* Gothic border colors */
+html[data-theme="gothic"] .border-cream-400,
+html[data-theme="gothic"] .border-cream-500 {
+  border-color: rgba(139, 0, 0, 0.2) !important;
+}
+
+/* Gothic gradient accent on cards */
+html[data-theme="gothic"] .bg-gradient-to-r.from-igda {
+  background: linear-gradient(90deg, #7a1818, rgba(122, 24, 24, 0.5), transparent) !important;
+}
+
+/* ========================================
+   Premium Gothic Effects
+   ======================================== */
+
+/* Chromatic Aberration on hover */
+html[data-theme="gothic"] .polaroid:hover img {
+  animation: chromatic-shift 0.4s ease-out;
+}
+
+@keyframes chromatic-shift {
+  0%, 100% {
+    filter: grayscale(100%) contrast(1.2) brightness(0.9);
+  }
+  20% {
+    filter: grayscale(100%) contrast(1.3) brightness(1.1)
+            drop-shadow(-3px 0 0 rgba(255, 0, 0, 0.4))
+            drop-shadow(3px 0 0 rgba(0, 255, 255, 0.4));
+  }
+  40% {
+    filter: grayscale(100%) contrast(1.2) brightness(0.8)
+            drop-shadow(2px 0 0 rgba(255, 0, 0, 0.3))
+            drop-shadow(-2px 0 0 rgba(0, 255, 255, 0.3));
+  }
+  60% {
+    filter: grayscale(100%) contrast(1.4) brightness(1.2)
+            drop-shadow(-2px 0 0 rgba(255, 0, 0, 0.5))
+            drop-shadow(2px 0 0 rgba(0, 255, 255, 0.5));
+  }
+  80% {
+    filter: grayscale(100%) contrast(1.1) brightness(0.95);
+  }
+}
+
+/* Enhanced Vignette - moved to GothicEffects.tsx component */
+
+/* Gold accent glow for special elements */
+html[data-theme="gothic"] .gothic-gold-accent {
+  color: var(--gothic-gold);
+  text-shadow: 0 0 15px var(--gothic-gold-glow);
+}
+
+/* Premium polaroid styling with gold border accent */
+html[data-theme="gothic"] .polaroid {
+  background: linear-gradient(145deg, rgba(18, 14, 16, 0.95), rgba(10, 6, 8, 0.98));
+  border: 1px solid rgba(122, 24, 24, 0.4);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.5),
+    0 0 1px rgba(201, 162, 39, 0.3),
+    inset 0 1px 0 rgba(201, 162, 39, 0.1);
+}
+
+html[data-theme="gothic"] .polaroid::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), transparent, rgba(122, 24, 24, 0.3));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+html[data-theme="gothic"] .polaroid:hover::before {
+  opacity: 1;
+}
+
+/* Lightning flash class for JS integration */
+.lightning-flash {
+  animation: lightning-strike 0.15s ease-out;
+}
+
+@keyframes lightning-strike {
+  0% {
+    filter: brightness(1) contrast(1);
+  }
+  30% {
+    filter: brightness(3) contrast(1.5) invert(0.1);
+  }
+  60% {
+    filter: brightness(1.5) contrast(1.2);
+  }
+  100% {
+    filter: brightness(1) contrast(1);
+  }
+}
+
+/* Color inversion pulse effect */
+@keyframes inversion-pulse {
+  0%, 94%, 100% {
+    filter: none;
+  }
+  95%, 98% {
+    filter: invert(1) hue-rotate(180deg) saturate(0.8);
+  }
+}
+
+html[data-theme="gothic"] .gothic-invertible {
+  animation: inversion-pulse 25s ease-in-out infinite;
+}
+
+/* Glitch text effect */
+html[data-theme="gothic"] .gothic-glitch {
+  position: relative;
+}
+
+html[data-theme="gothic"] .gothic-glitch::before,
+html[data-theme="gothic"] .gothic-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+html[data-theme="gothic"] .gothic-glitch:hover::before {
+  animation: glitch-1 0.3s ease-out;
+  color: #ff0000;
+  opacity: 0.8;
+}
+
+html[data-theme="gothic"] .gothic-glitch:hover::after {
+  animation: glitch-2 0.3s ease-out;
+  color: #00ffff;
+  opacity: 0.8;
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); opacity: 0; }
+  20% { transform: translate(-3px, 2px); opacity: 0.8; }
+  40% { transform: translate(3px, -2px); opacity: 0.6; }
+  60% { transform: translate(-2px, 1px); opacity: 0.8; }
+  80% { transform: translate(2px, -1px); opacity: 0.4; }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); opacity: 0; }
+  20% { transform: translate(3px, -2px); opacity: 0.8; }
+  40% { transform: translate(-3px, 2px); opacity: 0.6; }
+  60% { transform: translate(2px, -1px); opacity: 0.8; }
+  80% { transform: translate(-2px, 1px); opacity: 0.4; }
 }
