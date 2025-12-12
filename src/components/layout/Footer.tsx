@@ -60,7 +60,7 @@ export default function Footer() {
           </p>
           <span className="hidden sm:inline text-ink-400">•</span>
           <p className="font-mono text-igda text-xs font-bold">
-            Developed by Erhan Kaya
+            Developed by Erhan Kaya. Bugs? On purpose.
           </p>
         </div>
       </div>
