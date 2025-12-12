@@ -39,12 +39,12 @@ export default function Purpose() {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-80'
             }`}
           >
-            <p className="font-mono text-ink-700 text-base md:text-lg leading-relaxed mb-6">
+            <p className="font-mono text-ink-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
               Amacımız, zaten ülkemizdeki birbirinden değerli oyun geliştirme
               topluluklarının ortaya koyduğu faaliyetlere bir yenisini eklemek değil.
             </p>
 
-            <p className="font-mono text-ink-600 text-base md:text-lg leading-relaxed">
+            <p className="font-mono text-ink-600 text-sm sm:text-base md:text-lg leading-relaxed">
               Bizler, yerli bağımsız oyun geliştirme endüstrimizdeki{' '}
               <span className="text-igda font-semibold">üretken, nitelikli işler</span>{' '}
               ortaya koyan oyun geliştiricilerin buluşabileceği ve{' '}

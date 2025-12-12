@@ -151,7 +151,7 @@ export default function Navbar() {
                     alt="IGDA Istanbul"
                     width={64}
                     height={64}
-                    className="h-12 w-auto"
+                    className="h-10 sm:h-12 w-auto"
                     priority
                   />
                 </motion.div>

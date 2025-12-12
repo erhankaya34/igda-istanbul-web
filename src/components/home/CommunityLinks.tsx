@@ -60,11 +60,11 @@ export default function CommunityLinks() {
       {/* Decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-16 left-16 w-8 h-8 border-2 border-cream-500/40 animate-float"
+          className="absolute top-8 left-8 sm:top-12 sm:left-12 md:top-16 md:left-16 w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 border-2 border-cream-500/40 animate-float"
           style={{ '--rotate': '12deg' } as React.CSSProperties}
         />
         <div
-          className="absolute bottom-24 right-24 w-6 h-6 bg-igda/8 animate-float animation-delay-400"
+          className="absolute bottom-12 right-12 sm:bottom-18 sm:right-18 md:bottom-24 md:right-24 w-5 sm:w-5.5 md:w-6 h-5 sm:h-5.5 md:h-6 bg-igda/8 animate-float animation-delay-400"
           style={{ '--rotate': '45deg' } as React.CSSProperties}
         />
       </div>
@@ -81,7 +81,7 @@ export default function CommunityLinks() {
               Topluluk
             </span>
 
-            <h2 className="font-display text-3xl md:text-4xl text-ink-900 mt-4 mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-ink-900 mt-4 mb-4">
               Bizi Takip Edin
             </h2>
 
@@ -91,21 +91,21 @@ export default function CommunityLinks() {
           </div>
 
           {/* Social links grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
             {socialLinks.map((link, index) => (
               <Link
                 key={link.name}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group retro-card block p-6 transition-all duration-500 ${
+                className={`group retro-card block p-4 sm:p-5 md:p-6 transition-all duration-500 ${
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-80'
                 }`}
                 style={{ transitionDelay: `${200 + index * 80}ms` }}
               >
                 <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 flex items-center justify-center border-2 border-ink-900 text-ink-900 group-hover:bg-igda group-hover:border-igda group-hover:text-white transition-all duration-300">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border-2 border-ink-900 text-ink-900 group-hover:bg-igda group-hover:border-igda group-hover:text-white transition-all duration-300">
                       {link.icon}
                     </div>
                     <div>

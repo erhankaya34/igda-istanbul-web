@@ -22,48 +22,45 @@ export default function Footer() {
 
   return (
     <footer className="bg-cream-300 border-t border-cream-400 relative">
-      <div className="container-custom py-12">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          {/* Logo & Description */}
-          <div className="text-center md:text-left">
-            <Link href="/" className="inline-block mb-4">
-              <Image
-                src="/images/logos/main-logo.png"
-                alt="IGDA Istanbul"
-                width={180}
-                height={60}
-                className="h-14 w-auto"
-              />
-            </Link>
-          </div>
+      <div className="container-custom py-6">
+        {/* Compact single row layout */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+          {/* Logo */}
+          <Link href="/">
+            <Image
+              src="/images/logos/main-logo.png"
+              alt="IGDA Istanbul"
+              width={200}
+              height={70}
+              className="h-14 w-auto"
+            />
+          </Link>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             {socialLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                target={link.href.startsWith('mailto') ? undefined : '_blank'}
-                rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                className="p-3 rounded-lg bg-cream-200 hover:bg-igda hover:text-white text-ink-600 transition-all duration-200"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-cream-200 hover:bg-igda hover:text-white text-ink-600 transition-all duration-200"
                 aria-label={link.label}
               >
-                <link.icon size={20} />
+                <link.icon size={18} />
               </Link>
             ))}
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-cream-400 my-8" />
-
-        {/* Bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+        {/* Copyright - compact */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-4 mt-4 pt-4 border-t border-cream-400">
           <p className="font-mono text-ink-500 text-xs">
             © {currentYear} IGDA Istanbul
           </p>
+          <span className="hidden sm:inline text-ink-400">•</span>
           <p className="font-mono text-igda text-xs font-bold">
-            Developed by Erhan Kaya. Bugs? On purpose.
+            Developed by Erhan Kaya
           </p>
         </div>
       </div>

@@ -84,11 +84,11 @@ export default function LeaderTeam() {
       {/* Decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-20 left-20 w-4 h-4 bg-igda/10 animate-float"
+          className="absolute top-10 left-10 sm:top-16 sm:left-16 md:top-20 md:left-20 w-4 h-4 bg-igda/10 animate-float"
           style={{ '--rotate': '12deg' } as React.CSSProperties}
         />
         <div
-          className="absolute bottom-20 right-20 w-6 h-6 border-2 border-cream-500 opacity-30 animate-float animation-delay-600"
+          className="absolute bottom-10 right-10 sm:bottom-16 sm:right-16 md:bottom-20 md:right-20 w-6 h-6 border-2 border-cream-500 opacity-30 animate-float animation-delay-600"
           style={{ '--rotate': '45deg' } as React.CSSProperties}
         />
       </div>
@@ -96,7 +96,7 @@ export default function LeaderTeam() {
       <div className="container-custom relative">
         {/* Vision text */}
         <div
-          className={`max-w-3xl mx-auto text-center mb-16 transition-all duration-700 ease-out ${
+          className={`max-w-3xl mx-auto text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-700 ease-out ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-80'
           }`}
         >
@@ -111,7 +111,7 @@ export default function LeaderTeam() {
             style={{ transitionDelay: '200ms' }}
           />
 
-          <p className="font-mono text-ink-700 text-base md:text-lg leading-relaxed mb-6">
+          <p className="font-mono text-ink-700 text-sm sm:text-base md:text-lg leading-relaxed mb-6">
             IGDA Istanbul'un,{' '}
             <span className="text-igda font-semibold">global bağlantıları</span>{' '}
             öne çıkaran, paylaşım ve işbirliği için{' '}
@@ -119,7 +119,7 @@ export default function LeaderTeam() {
             olmasını istiyoruz.
           </p>
 
-          <p className="font-mono text-ink-600 text-base leading-relaxed">
+          <p className="font-mono text-ink-600 text-sm sm:text-base leading-relaxed">
             Daha yolun başındayız ama birlikte çok güzel şeyler yapacağımıza inanıyoruz.
           </p>
 
@@ -135,7 +135,7 @@ export default function LeaderTeam() {
         </div>
 
         {/* Leader cards */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
           {leaders.map((leader, index) => (
             <motion.div
               key={leader.name}
@@ -153,7 +153,7 @@ export default function LeaderTeam() {
                 transitionDelay: `${400 + index * 100}ms`,
               }}
             >
-              <div className="w-[160px] h-[160px] md:w-[180px] md:h-[180px] relative overflow-hidden">
+              <div className="w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[160px] md:h-[160px] lg:w-[180px] lg:h-[180px] relative overflow-hidden">
                 <Image
                   src={leader.image}
                   alt={leader.name}
@@ -163,7 +163,7 @@ export default function LeaderTeam() {
                 />
               </div>
               <div className="text-center mt-3 pb-2">
-                <p className="font-display text-base font-semibold text-ink-800">
+                <p className="font-display text-sm sm:text-base font-semibold text-ink-800">
                   {leader.name}
                 </p>
                 <p className="font-mono text-xs text-ink-500 mt-1">

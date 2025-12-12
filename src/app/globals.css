@@ -679,6 +679,26 @@ p, li, span {
     }
   }
 
+  /* Float with rotation - for decorative squares */
+  @keyframes float-rotate {
+    0%, 100% {
+      transform: rotate(12deg) translateY(0);
+    }
+    50% {
+      transform: rotate(18deg) translateY(-10px);
+    }
+  }
+
+  /* Float with scale - for decorative elements */
+  @keyframes float-scale {
+    0%, 100% {
+      transform: rotate(45deg) scale(1);
+    }
+    50% {
+      transform: rotate(55deg) scale(1.1);
+    }
+  }
+
   /* Subtle scale pulse for decorative dots */
   .animate-scale-pulse {
     animation: scalePulse 3s ease-in-out infinite;
@@ -802,6 +822,14 @@ p, li, span {
 @media (max-width: 480px) {
   :root {
     --section-padding: 3rem;
+    --container-padding: 0.875rem;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --section-padding: 2rem;
+    --container-padding: 0.75rem;
   }
 }
 

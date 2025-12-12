@@ -32,11 +32,11 @@ export default function Story() {
       {/* Decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-10 right-10 w-16 h-16 border-2 border-cream-500 opacity-20 animate-float"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-10 md:right-10 w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 border-2 border-cream-500 opacity-20 animate-float"
           style={{ '--rotate': '12deg' } as React.CSSProperties}
         />
         <div
-          className="absolute bottom-20 left-10 w-8 h-8 bg-igda/5 animate-float animation-delay-400"
+          className="absolute bottom-10 left-4 sm:bottom-14 sm:left-6 md:bottom-20 md:left-10 w-6 sm:w-7 md:w-8 h-6 sm:h-7 md:h-8 bg-igda/5 animate-float animation-delay-400"
           style={{ '--rotate': '45deg' } as React.CSSProperties}
         />
       </div>
@@ -61,14 +61,14 @@ export default function Story() {
           />
 
           {/* Main text */}
-          <p className="font-mono text-ink-700 text-base md:text-lg leading-relaxed mb-6">
+          <p className="font-mono text-ink-700 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">
             IGDA Istanbul kurucu liderleri olarak uzun zamandır bu sektörün içerisindeyiz,
             farklı kulüp ve topluluklar aracılığıyla ülkemizdeki bağımsız oyun geliştirme
             endüstrisini bir araya getirecek ve birbirimizin gelişimini destekleyecek
             birçok faaliyette yer aldık, birçok geliştiriciyle yollarımız kesişti.
           </p>
 
-          <p className="font-mono text-ink-600 text-base md:text-lg leading-relaxed">
+          <p className="font-mono text-ink-600 text-sm sm:text-base md:text-lg leading-relaxed">
             Şimdi ise bu tecrübeleri bir araya getirip,{' '}
             <span className="text-igda font-semibold">daha güçlü bir topluluk</span>{' '}
             oluşturmak için buradayız.

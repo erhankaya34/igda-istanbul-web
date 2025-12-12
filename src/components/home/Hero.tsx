@@ -215,7 +215,7 @@ export default function Hero() {
               src={backgroundImage}
               alt=""
               fill
-              className={`object-cover ${isGothic ? 'grayscale-0' : 'grayscale'}`}
+              className={`object-cover object-left sm:object-center ${isGothic ? 'grayscale-0' : 'grayscale'}`}
               priority
               sizes="120vw"
             />
@@ -227,7 +227,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-dots opacity-30" />
 
       {/* Main Content */}
-      <div className="relative z-10 container-custom px-4 pt-32 pb-20">
+      <div className="relative z-10 container-custom px-4 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             {/* Left - Text Content */}
@@ -252,11 +252,11 @@ export default function Hero() {
                 </span>
               </h1>
 
-              <p className="font-mono text-ink-600 text-base md:text-lg max-w-xl mx-auto lg:mx-0 mt-8 mb-10 leading-relaxed">
+              <p className="font-mono text-ink-600 text-sm sm:text-base md:text-lg max-w-xl mx-auto lg:mx-0 mt-6 sm:mt-8 mb-8 sm:mb-10 leading-relaxed">
                 Bizler, yerli bağımsız oyun geliştirme endüstrimizdeki üretken, nitelikli işler ortaya koyan oyun geliştiricilerin buluşabileceği ve dünyayla daha sıkı bağlar kurabileceği bir alan yaratmak için buradayız.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
+              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-2 sm:gap-3 md:gap-4">
                 <Link href="https://discord.gg/igdaistanbul" target="_blank">
                   <button className="btn-primary group">
                     Topluluğa Katıl
@@ -273,7 +273,7 @@ export default function Hero() {
 
             {/* Right - Polaroid Photos */}
             <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-              <div className="relative w-[420px] h-[520px] md:w-[520px] md:h-[620px]">
+              <div className="relative w-[280px] h-[360px] sm:w-[360px] sm:h-[460px] md:w-[420px] md:h-[520px] lg:w-[520px] lg:h-[620px]">
                 {polaroids.map((polaroid, index) => (
                   <motion.div
                     key={polaroid.src}
@@ -292,7 +292,7 @@ export default function Hero() {
                       animationDelay: `${index * 150}ms`,
                     }}
                   >
-                    <div className="w-[190px] h-[190px] md:w-[220px] md:h-[220px] relative overflow-hidden bg-cream-300">
+                    <div className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[190px] md:h-[190px] lg:w-[220px] lg:h-[220px] relative overflow-hidden bg-cream-300">
                       <Image
                         src={polaroid.src}
                         alt={polaroid.alt}
@@ -319,12 +319,12 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - hidden on mobile */}
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:block"
       >
         <div className="flex flex-col items-center gap-3">
           <span className="font-mono text-ink-400 text-xs tracking-wider uppercase">

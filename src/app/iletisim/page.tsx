@@ -9,24 +9,24 @@ export default function IletisimPage() {
     <div className="bg-cream-200 min-h-screen relative overflow-hidden">
       {/* Floating decorative elements */}
       <motion.div
-        className="absolute top-32 left-[10%] w-16 h-16 border-2 border-igda/20"
+        className="hidden sm:block absolute top-32 left-[10%] w-16 h-16 border-2 border-igda/20"
         animate={{ rotate: [12, 18, 12], y: [0, -15, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         style={{ rotate: 12 }}
       />
       <motion.div
-        className="absolute top-48 right-[15%] w-8 h-8 bg-igda/10"
+        className="hidden sm:block absolute top-48 right-[15%] w-8 h-8 bg-igda/10"
         animate={{ rotate: [45, 55, 45], scale: [1, 1.15, 1] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         style={{ rotate: 45 }}
       />
       <motion.div
-        className="absolute bottom-40 left-[20%] w-4 h-4 bg-igda/20"
+        className="hidden sm:block absolute bottom-40 left-[20%] w-4 h-4 bg-igda/20"
         animate={{ y: [0, -20, 0], opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-60 right-[25%] w-12 h-12 border-2 border-cream-500/40 rounded-full"
+        className="hidden sm:block absolute bottom-60 right-[25%] w-12 h-12 border-2 border-cream-500/40 rounded-full"
         animate={{ scale: [1, 1.1, 1], rotate: [0, 180, 360] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
       />
@@ -35,7 +35,7 @@ export default function IletisimPage() {
       <div className="absolute inset-0 bg-dots opacity-30" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-8 relative z-10">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-6 sm:pb-8 relative z-10">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -74,7 +74,7 @@ export default function IletisimPage() {
       </section>
 
       {/* Email Card Section */}
-      <section className="py-16 relative z-10">
+      <section className="py-10 sm:py-12 md:py-16 relative z-10">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -92,18 +92,18 @@ export default function IletisimPage() {
               {/* Card */}
               <motion.a
                 href={`mailto:${CONTACT_INFO.email}`}
-                className="relative block bg-white p-8 md:p-10 rounded-xl border-2 border-cream-400 shadow-lg transition-all duration-300 group-hover:border-igda/40 group-hover:shadow-xl"
+                className="relative block bg-white p-5 sm:p-6 md:p-8 lg:p-10 rounded-xl border-2 border-cream-400 shadow-lg transition-all duration-300 group-hover:border-igda/40 group-hover:shadow-xl"
                 whileHover={{ y: -4, rotate: -1 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {/* Envelope icon with animation */}
-                <div className="flex justify-center mb-8">
+                <div className="flex justify-center mb-6 sm:mb-8">
                   <motion.div
                     className="relative"
                     whileHover={{ scale: 1.1 }}
                   >
-                    <div className="w-20 h-20 bg-gradient-to-br from-igda to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
-                      <Mail className="w-10 h-10 text-white" />
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-igda to-red-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
+                      <Mail className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
                     </div>
                     {/* Floating send icon */}
                     <motion.div
@@ -117,23 +117,23 @@ export default function IletisimPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="font-display text-ink-700 text-2xl text-center mb-3">
+                <h2 className="font-display text-ink-700 text-xl sm:text-2xl text-center mb-2 sm:mb-3">
                   E-posta Gönderin
                 </h2>
 
                 {/* Description */}
-                <p className="font-mono text-ink-500 text-sm text-center mb-6 leading-relaxed">
+                <p className="font-mono text-ink-500 text-xs sm:text-sm text-center mb-4 sm:mb-6 leading-relaxed">
                   Her türlü soru ve öneriniz için bize yazın.
                   <br />
                   En kısa sürede yanıtlayacağız.
                 </p>
 
                 {/* Email Address Box */}
-                <div className="bg-cream-100 border-2 border-dashed border-cream-400 rounded-lg p-4 text-center mb-6">
+                <div className="bg-cream-100 border-2 border-dashed border-cream-400 rounded-lg p-3 sm:p-4 text-center mb-4 sm:mb-6">
                   <p className="font-mono text-xs text-ink-400 uppercase tracking-wider mb-2">
                     E-posta Adresimiz
                   </p>
-                  <p className="font-mono text-igda text-xl font-bold tracking-wide">
+                  <p className="font-mono text-igda text-base sm:text-lg md:text-xl font-bold tracking-wide">
                     {CONTACT_INFO.email}
                   </p>
                 </div>
