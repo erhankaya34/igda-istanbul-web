@@ -12,6 +12,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/jesuscampos',
+        destination: 'https://forms.gle/WhyXXRRtViidgEh87',
+        permanent: false,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
